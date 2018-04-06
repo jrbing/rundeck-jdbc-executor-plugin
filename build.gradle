@@ -5,25 +5,34 @@ apply plugin: 'idea'
 sourceCompatibility = 1.8
 ext.rundeckPluginVersion= '1.1'
 
+def rundeckVersion = '2.10.8'
+def groovySqlVersion = '2.4.15'
+
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    compile([group: 'org.rundeck', name: 'rundeck-core', version: '2.8.2',ext:'jar'],
-            [group: 'org.rundeck', name: 'rundeck-storage-api', version: '2.8.2',ext:'jar'],
-            'commons-lang:commons-lang:2.6',
-            'log4j:log4j:1.2.17',
-            'org.codehaus.groovy:groovy-sql:2.4.11'
+    compile([group: "org.rundeck", name: "rundeck-core", version: "${rundeckVersion}",ext:"jar"],
+            [group: "org.rundeck", name: "rundeck-storage-api", version: "${rundeckVersion}",ext:"jar"],
+            "commons-lang:commons-lang:2.6",
+            "log4j:log4j:1.2.17",
+            "org.codehaus.groovy:groovy-sql:2.4.11"
     )
+    //compile files('libs/ojdbc7.jar')
 }
 
-ext.pluginClassNames='com.github.strdn.rundeck.plugin.jdbcexecutor.GroovySQLCommandPlugin,com.github.strdn.rundeck.plugin.jdbcexecutor.GroovySQLScriptNodeStepPlugin'
+ext.pluginClassNames='com.github.jrbing.rundeck.plugin.jdbcexecutor.GroovySQLCommandPlugin,com.github.jrbing.rundeck.plugin.jdbcexecutor.GroovySQLScriptNodeStepPlugin'
+
 jar {
     manifest {
         attributes 'Rundeck-Plugin-Classnames': pluginClassNames
         attributes 'Rundeck-Plugin-File-Version': version
         attributes 'Rundeck-Plugin-Version': rundeckPluginVersion, 'Rundeck-Plugin-Archive': 'true'
     }
+}
+
+tasks.withType(JavaCompile) {
+  options.compilerArgs << "-Xlint:deprecation" << "-Werror"
 }
