@@ -64,7 +64,7 @@ class SqlConnectionBuilder {
     if (storagePath != null) {
       //look up storage value
       if (storagePath.contains("${")) {
-        storagePath = DataContextUtils.replaceDataReferences(
+        storagePath = DataContextUtils.replaceDataReferencesInString(
                         storagePath,
                         context.getDataContext()
                       );
@@ -96,7 +96,7 @@ class SqlConnectionBuilder {
       user = getNode().getUsername();
     }
     if (user != null && user.contains("${")) {
-      return DataContextUtils.replaceDataReferences(user, getContext().getDataContext());
+      return DataContextUtils.replaceDataReferencesInString(user, getContext().getDataContext());
     }
     return user;
   }
