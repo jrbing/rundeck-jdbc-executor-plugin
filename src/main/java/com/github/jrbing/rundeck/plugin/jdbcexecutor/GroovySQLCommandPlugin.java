@@ -1,4 +1,4 @@
-package com.github.strdn.rundeck.plugin.jdbcexecutor;
+package com.github.jrbing.rundeck.plugin.jdbcexecutor;
 
 import com.dtolabs.rundeck.core.common.Framework;
 import com.dtolabs.rundeck.core.common.INodeEntry;
@@ -19,7 +19,7 @@ import javax.script.ScriptException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import static com.github.strdn.rundeck.plugin.jdbcexecutor.GroovySQLStatementExecutor.executeStatement;
+import static com.github.jrbing.rundeck.plugin.jdbcexecutor.GroovySQLStatementExecutor.executeStatement;
 
 /**
  * GroovySQLCommandPlugin {@link NodeExecutor} plugin implementation.

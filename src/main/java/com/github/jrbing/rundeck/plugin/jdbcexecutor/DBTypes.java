@@ -1,4 +1,4 @@
-package com.github.strdn.rundeck.plugin.jdbcexecutor;
+package com.github.jrbing.rundeck.plugin.jdbcexecutor;
 
 public enum DBTypes {
     ORACLE, MYSQL, UNKNOWN;

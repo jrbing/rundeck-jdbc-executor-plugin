@@ -1,4 +1,4 @@
-package com.github.strdn.rundeck.plugin.jdbcexecutor;
+package com.github.jrbing.rundeck.plugin.jdbcexecutor;
 
 class DBDrivers {
     private static final String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
