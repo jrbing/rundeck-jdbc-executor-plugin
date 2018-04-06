@@ -18,7 +18,7 @@ dependencies {
             [group: "org.rundeck", name: "rundeck-storage-api", version: "${rundeckVersion}",ext:"jar"],
             "commons-lang:commons-lang:2.6",
             "log4j:log4j:1.2.17",
-            "org.codehaus.groovy:groovy-sql:2.4.11"
+            "org.codehaus.groovy:groovy-sql:${groovySqlVersion}"
     )
     //compile files('libs/ojdbc7.jar')
 }
